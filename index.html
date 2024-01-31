@@ -1,6 +1,126 @@
- <html><head> 
+<!DOCTYPE html><head> 
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
+ <script >
+  let likecount = parseInt(localStorage.getItem('likecount')) || 1500;
+
+
+function like() {
+  // Increase the comment count
+  likecount++;
+
+  // Save the comment count to local storage
+  localStorage.setItem('likecount', likecount);
+
+  // Update the UI to reflect the new comment count
+  updatelikecount();
+
+  // Optionally, you can perform other actions related to commenting here
+
+  // For demonstration, let's log the comment count to the console
+  console.log('Like count:', likecount);
+}
+
+function updatelikecount() {
+  // Update the UI element that displays the comment count
+  const likecountElement = document.getElementById('likecount');
+  if (likecountElement) {
+      likecountElement.textContent = likecount;
+  }
+}
+
+// Initial update of the UI
+updatelikecount();
+//updtae likecount
+
+let commentCount = parseInt(localStorage.getItem('commentCount')) || 70;
+
+function comment() {
+  // Increase the comment count
+  commentCount++;
+
+  // Save the comment count to local storage
+  localStorage.setItem('commentCount', commentCount);
+
+  // Update the UI to reflect the new comment count
+  updateCommentCount();
+
+  // Optionally, you can perform other actions related to commenting here
+
+  // For demonstration, let's log the comment count to the console
+  console.log('Comment count:', commentCount);
+}
+
+function updateCommentCount() {
+  // Update the UI element that displays the comment count
+  const commentCountElement = document.getElementById('commentCount');
+  if (commentCountElement) {
+      commentCountElement.textContent = commentCount;
+  }
+}
+
+// Initial update of the UI
+updateCommentCount();
+
+function share(){
+  alert("Thanks for visitng my Profile...");
+  if (navigator.share) {
+      navigator.share({
+          title: 'Profile Card',
+          text: 'Check out my profile!',
+          url: 'https://tharvesh.netlify.app/'
+      })
+      .then(() => console.log('Shared successfully'))
+      .catch((error) => console.error('Error sharing:', error));
+  } else {
+      // Fallback for browsers that do not support the Web Share API
+      alert("Sorry, your browser doesn't support the Web Share API.");
+  }
+
+}
+
+function linkedin(){
+  alert("Thanks for your Support,Keep up-to-date...");
+  location.assign("https://www.linkedin.com/in/tharvesh-muhaideen-a-97aba3242/")
+}
+
+function telegram(){
+  alert("Thanks for your Support,Keep up-to-date...");
+  location.assign("https://t.me/Ngt_Tharvesh")
+}
+
+
+function dcoder(){
+  alert("This browser is not display the Dcoder's icon\nNow you will be redirect to Dcoder coding platform");
+  alert(" Thanks for your Support,Keep up-to-date...")
+  location.assign("https://code.dcoder.tech/profile/ngt_tharvesh")
+}
+
+function github(){
+  alert("Thanks for your Support,Keep up-to-date...");
+  location.assign("https://github.com/Tharvesh588")
+}
+
+function support(){
+  alert("Thanks for your Support,keep supporting...");
+  alert("Follow me on these socialMedia ")
+}
+
+function follow(){
+  alert("Thanks for following my Profile,Have a Pleasure day ");
+  alert("Follow me on these socialMedia ");
+}
+
+function back(){
+  alert("Thanks for visiting my Profile");
+  location.assign("https://www.google.com/");
+}
+
+function menu(){
+  alert("menu function is under surveillance...");
+  alert("visit Later...");
+}
+ </script>
   <script src="https://kit.fontawesome.com/a2fa536777.js" crossorigin="anonymous"></script> 
   <title>Profile</title> 
   <style>
@@ -10,14 +130,14 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+  
     body {
       background: #151515;
       font-family: 'Montserrat', sans-serif;
     }
-
+  
     /*---------------menu icon----------------*/
-
+  
     .container {
       position: absolute;
       left: 50%;
@@ -27,11 +147,11 @@
       height: 420px;
       box-shadow: 5px 5px 5px rgba(5, 5, 5, 0.8), -4px -4px 5px rgba(200, 200, 200, 0.1);
     }
-
+  
     .menu-icon {
       margin: 1em 1em 0 1em;
     }
-
+  
     .menu {
       display: flex;
       align-items: center;
@@ -40,29 +160,29 @@
       width: 2em;
       height: 2em;
     }
-
+  
     .menu-icon1 {
       float: left;
       color: rgba(206, 208, 225, 0.9);
     }
-
+  
     .menu-icon2 {
       float: right;
       color: rgba(206, 208, 225, 0.9);
     }
-
+  
     .menu-icon::after {
       content: '';
       display: block;
       clear: both;
     }
-
+  
     .menu:hover {
       box-shadow: inset 3px 3px 3px rgba(5, 5, 5, 0.8), inset -3px -3px 3px rgba(100, 100, 100, 0.2);
     }
-
+  
     /*--------------profile img----------------*/
-
+  
     .img-box {
       display: block;
       width: 6em;
@@ -74,7 +194,7 @@
       margin: 0 auto;
       box-shadow: inset 2px 2px 2px rgba(5, 5, 5, 0.8), inset -2px -2px 2px rgba(100, 100, 100, 0.2);
     }
-
+  
     .img-box img {
       width: 5em;
       height: 5em;
@@ -202,7 +322,7 @@
     width: 100%;
     text-align: center;
     color: crimson;
-
+  
     letter-spacing: 10px;
     font-size: 18px;
     font-weight: 800;
@@ -212,16 +332,16 @@
     position: absolute;
     bottom: 0;
     box-shadow: -5px -5px 10px rgba(0,0,0, 0.4);
-}
+  }
     
   </style> 
- </head> 
- <body> 
+  </head> 
+  <body> 
   <div class="container"> <!--MENU ICON---------------> 
    <div class="menu-icon"> 
-    <div class="menu menu-icon1"> <i class="fa-sharp fa-solid fa-arrow-left "></i> 
+    <div class="menu menu-icon1"> <i class="fa-sharp fa-solid fa-arrow-left " onclick="back()"></i> 
     </div> 
-    <div class=" menu menu-icon2"> <i class="fa-solid fa-ellipsis-vertical"></i> 
+    <div class=" menu menu-icon2"> <i class="fa-solid fa-ellipsis-vertical" onclick="menu()"></i> 
     </div> 
    </div> <!--profile img----------------> 
    <div class="img-box"> 
@@ -230,31 +350,34 @@
    <p class="name">Ngt_Tharvesh</p> 
    <p class="profession">Python Developer &amp; Data Analyst</p> <!--Social----------------> 
    <div class="social-box"> 
-    <div class="social"> <i class="fa-brands fa-linkedin twitter"></i> 
+    <div class="social"> <i class="fa-brands fa-linkedin facebook"onclick="linkedin()"></i> 
     </div> 
-    <div class="social"> <i class="fa-brands fa-telegram telegram"></i> 
+    <div class="social"> <i class="fa-brands fa-telegram telegram"onclick="telegram()"></i> 
     </div> 
-    <div class="social"> <i class="fa-brands fa-instagram twitter"></i> 
+    <div class="social"> <i class="fa-brands fa-instagram twitter" onclick="dcoder()"></i> 
     </div> 
-    <div class="social"> <i class="fa-brands fa-youtube youtube"></i> 
+    <div class="social"> <i class="fa-brands fa-github youtube"onclick="github()"></i> 
     </div> 
    </div> <!--buttons---------------> 
    <div class="btn-container"> 
     <div class="btn btn1"> 
-     <p>Support</p> 
+     <p onclick="support()">Support</p> 
     </div> 
     <div class="btn btn2"> 
-     <p>Follow</p> 
+     <p onclick="follow()">Follow</p> 
     </div> 
    </div>
    <div class="react-box"> 
-    <div class="react"> <i class="fa-solid fa-heart"></i> <span>1.5k</span> 
+    <div class="react"> <i class="fa-solid fa-heart" onclick="like()" id="likecount"></i> <span></span> 
     </div> 
-    <div class="react"> <i class="fa-solid fa-comment"></i><span>70</span> 
+    <div class="react"> <i class="fa-solid fa-comment" onclick="comment()" id="commentCount"></i><span ></span> 
     </div> 
-    <div class="react"> <i class="fa-solid fa-share"></i><span>300</span> 
+    <div class="react"> <i class="fa-solid fa-share" onclick="share()"></i><span>Share</span> 
     </div> 
    </div> 
-  </div> <a href="#" target="_blank"><i>click here</i></a>  <!--https://instagram.com/ngt_tamilan?utm_source=qr&amp;igshid=MzNlNGNkZWQ4Mg%3D%3D---------------> 
- 
-</body></html>
+  </div> <a ><i font-size="5px">Copyright © 2024 Profile.All rights reserved.</i></a>  <!--https://instagram.com/ngt_tamilan?utm_source=qr&amp;igshid=MzNlNGNkZWQ4Mg%3D%3D---------------> 
+  
+  </body>
+  
+  
+  </html>
