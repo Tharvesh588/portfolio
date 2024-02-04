@@ -116,10 +116,43 @@ function back(){
   location.assign("https://www.google.com/");
 }
 
-function menu(){
-  alert("menu function is under surveillance...");
-  alert("visit Later...");
-}
+function menu() {
+            const menuOptions = ['My Hands-On', 'Certificates', 'Other Sites'];
+
+            const menuContainer = document.createElement('div');
+            menuContainer.classList.add('menu-container');
+
+            menuOptions.forEach((option, index) => {
+                const menuItem = document.createElement('div');
+                menuItem.classList.add('menu-item');
+                menuItem.textContent = option;
+                menuItem.addEventListener('click', () => handleMenuClick(index));
+                menuContainer.appendChild(menuItem);
+            });
+
+            document.body.appendChild(menuContainer);
+        }
+        function handleMenuClick(index) {
+            const menuOptions = ['My Hands-On', 'Certificates', 'Other Sites'];
+
+            switch (index) {
+                case 0:
+                    // Navigate to the URL for 'My Hands-On'
+                    window.location.href = 'https://drive.google.com/drive/folders/199721h8qtefLcAXUFC6p_i7yNLQxmDmW?usp=sharing';
+                    break;
+                case 1:
+                    // Navigate to the URL for 'Certificates'
+                    window.location.href = 'https://postimg.cc/gallery/052KbJp';
+                    break;
+                case 2:
+                    // Navigate to the URL for 'Other Sites'
+                    window.location.href = 'https://cloud-convo.netlify.app/';
+                    break;
+                default:
+                    // Handle unexpected index
+                    alert('Invalid menu option');
+            }
+        }
  </script>
   <script src="https://kit.fontawesome.com/a2fa536777.js" crossorigin="anonymous"></script> 
   <title>Profile</title> 
